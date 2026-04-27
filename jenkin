@@ -1,1 +1,146 @@
+//add 
+//dependecy and build in pom.xml
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+//files
+create testng.xml in root folder
+src/test/java   packlage->class SampleTest
+
+//-------------------------------------------------------------------------------------in git bash
+cd "C:/Users/VICTUS/OneDrive/Documents/jenkins"
+
+git init
+
+git config --global user.name "YourGitHubName"
+git config --global user.email "you@example.com"
+
+git add src/ pom.xml testng.xml
+git commit -m "initial commit"
+
+git branch -M main
+git remote add origin https://github.com/YourUsername/dev_second.git
+git push -u origin main
+
+///////////////////incase
+If Remote Already Exists
+
+git remote remove origin
+git remote add origin https://github.com/username/reponame.git
+git push -u origin main
+
+------------------------verify remote url
+git remote -v
+
+///go to localhost
+http://localhost:8080
+
+--------------------------------------Step 1: Install Extra Plugins
+
+Click Manage Jenkins (gear icon ⚙️ on left)
+Click Plugins
+Click Available Plugins
+Search and install these one by one:
+
+✅ Maven Integration
+✅ TestNG Results
+
+
+Check "Restart Jenkins after installation"
+
+
+
+Step 1: Install Required Plugins First
+
+Click Manage Jenkins → Plugins → Available Plugins
+Search and install:
+
+✅ Maven Integration
+✅ TestNG Results
+
+
+Check "Restart Jenkins after installation"
+
+
+Step 2: Configure Tools
+
+Click Manage Jenkins → Tools
+
+JDK:
+
+Click Add JDK
+Name: JDK21
+Uncheck "Install automatically"
+JAVA_HOME: C:\Program Files\Java\jdk-21.0.11
+
+Maven:
+
+Click Add Maven
+Name: maven 3.9.9
+Check "Install automatically"
+Version: 3.9.9
+Click Save
+
+
+Step 3: Create Freestyle Job
+
+Click New Item
+Name: maven-freestyle-ci
+Select Freestyle project → Click OK
+
+
+Step 4: Configure the Job
+General:
+
+Description: CI build for Maven project with TestNG
+
+Source Code Management:
+
+Select Git
+Repository URL: https://github.com/kruhi7533/dev_second.git
+Branch: */main
+
+Build Steps:
+
+Click Add build step → Invoke top-level Maven targets
+Maven Version: maven 3.9.9
+Goals: clean test
+
+Post-build Actions:
+
+Click Add post-build action → Publish TestNG Results
+Pattern: **/testng-results.xml
+Click Save
+
+
+
+//e------error i faced
+
+Fix: Configure Git in the Job
+
+Go to Jenkins dashboard
+Click maven-freestyle-ci job
+Click Configure (left side)
+Scroll to Source Code Management
+Select Git (not None!)
+Fill in:
+
+Repository URL: https://github.com/kruhi7533/dev_second.git
+Branch: */main
+
+
+
 
