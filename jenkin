@@ -1,3 +1,10 @@
+
+file->new->mavan project
+//files
+create testng.xml in root folder
+src/test/java   packlage(com.example)->class SampleTest
+
+
 //add 
 //dependecy and build in pom.xml
 
@@ -16,12 +23,10 @@
     </plugins>
   </build>
 
-//files
-create testng.xml in root folder
-src/test/java   packlage->class SampleTest
+
 
 //-------------------------------------------------------------------------------------in git bash
-cd "C:/Users/VICTUS/OneDrive/Documents/jenkins"
+cd "C:/Users/VICTUS/OneDrive/Documents/jenkins"  (get from properties)
 
 git init
 
